@@ -23,8 +23,8 @@ function myLinkedList() {
       }
       tempNode.next = newNode
     }
-    return newNode
     this.size++
+    return newNode
   }
   this.insertatIndex = function (index, val) {
     if (index < 0 || index > this.size) return
