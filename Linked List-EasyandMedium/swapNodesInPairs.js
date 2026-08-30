@@ -90,6 +90,13 @@ function myLinkedList() {
     }
     return dummyNode.next
   };
+  this.swapNodesInPairRecursiveWay = function (head) {
+    if (head === null || head.next === null) return head
+    let left = head, right = head.next
+    left.next = this.swapNodesInPairRecursiveWay(right.next)
+    right.next = left
+    return right
+  };
 }
 
 const myLL1 = new myLinkedList();
@@ -98,7 +105,7 @@ myLL1.addAtTail(2);
 myLL1.addAtTail(3);
 myLL1.addAtTail(4);
 
-let newHead = myLL1.swapNodesInPairIterativeWay()
+let newHead = myLL1.swapNodesInPairRecursiveWay(myLL1.head)
 while (newHead) {
   console.log(newHead.val)
   newHead = newHead.next
