@@ -21,3 +21,4 @@ const maxFreqSumBrute = (s) => {
   }
   return maxVowels + maxConsonant
 };
+
