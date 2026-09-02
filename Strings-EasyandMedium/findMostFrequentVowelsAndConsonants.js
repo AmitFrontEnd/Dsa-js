@@ -22,3 +22,22 @@ const maxFreqSumBrute = (s) => {
   return maxVowels + maxConsonant
 };
 
+const maxFreqSumOptimal = s => {
+  const map = new Map()
+  for (let i = 0; i < s.length; i++) {
+    if (map.has(s[i]))
+      map.set(s[i], map.get(s[i]) + 1)
+    else map.set(s[i], 1)
+  }
+  let maxVowels = 0, maxConsonant = 0
+  const vowels = ["a", "e", "i", "o", "u"]
+  for (const [key, value] of map) {
+    if (vowels.includes(key))
+      maxVowels = Math.max(maxVowels, value)
+    else maxConsonant = Math.max(maxConsonant, value)
+  }
+
+  return maxVowels + maxConsonant
+};
+
+console.log(maxFreqSumOptimal("successes"))
