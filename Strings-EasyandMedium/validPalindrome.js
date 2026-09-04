@@ -21,4 +21,24 @@ const isPalindromeBrute = s => {
   return false
 };
 
-console.log(isPalindromeBrute("race a car"))
+
+const isPalindromeOptimal = s => {
+  let alphaRegex = /[a-zA-Z0-9]/
+  s = s.toLowerCase()
+  let left = 0, right = s.length - 1;
+  while (left < right) {
+    if (!alphaRegex.test(s[left])) {
+      left++
+      continue
+    }
+    if (!alphaRegex.test(s[right])) {
+      right--
+      continue
+    }
+    if (s[left] !== s[right]) return false
+    left++
+    right--
+  }
+  return true
+};
+console.log(isPalindromeOptimal("race a car"))
