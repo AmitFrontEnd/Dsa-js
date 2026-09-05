@@ -13,4 +13,19 @@ const largestOddNumberBrute = num => {
   return arr.length ? Math.max(...arr).toString() : ''
 }
 
-console.log(largestOddNumberBrute("52"))
+const largestOddNumberOptimal = num => {
+  let oddStr = "", right = num.length - 1
+  while (right >= 0) {
+    if (num[right] % 2 === 0) {
+      right--
+      continue
+    }
+    break;
+  }
+  for (let i = 0; i <= right; i++) {
+    oddStr += num[i]
+  }
+  return oddStr
+};
+
+console.log(largestOddNumberOptimal("52"))
